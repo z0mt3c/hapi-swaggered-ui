@@ -1,0 +1,30 @@
+{
+  "name": "hapi-swaggered-ui",
+  "description": "",
+  "version": "1.0.0",
+  "author": "Timo Behrmann",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/z0mt3c/hapi-swaggered-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/z0mt3c/hapi-swaggered-ui/issues"
+  },
+  "license": "MIT",
+  "main": "index",
+  "keywords": [
+    "docs",
+    "swagger",
+    "swaggered",
+    "hapi"
+  ],
+  "engines": {
+    "node": "0.10.x"
+  },
+  "dependencies": {
+    "handlebars": "^2.0.0-alpha.4"
+  },
+  "devDependencies": {},
+  "scripts": {},
+  "peerDependencies": {}
+}
