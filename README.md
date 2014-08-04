@@ -22,7 +22,7 @@ In case you want to use hapi-swaggered-ui without hapi-swaggered (or the auto-de
         },
         options: {
             title: 'Page Title',
-            swaggerEndpoint: 'http://localhost:123/swagger/api-docs
+            swaggerEndpoint: 'http://localhost:123/swagger/api-docs'
         }
     }
 ]
