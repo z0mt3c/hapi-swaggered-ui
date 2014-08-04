@@ -1,37 +1,37 @@
 {
-    "name": "hapi-swaggered-ui",
-    "description": "Easy swagger-ui drop-in plugin for hapi to be used with hapi-swaggered.",
-    "version": "0.0.1",
-    "author": "Timo Behrmann",
-    "repository": {
-        "type": "git",
-        "url": "http://github.com/z0mt3c/hapi-swaggered-ui.git"
-    },
-    "bugs": {
-        "url": "https://github.com/z0mt3c/hapi-swaggered-ui/issues"
-    },
-    "license": "MIT",
-    "main": "index",
-    "keywords": [
-        "docs",
-        "swagger",
-        "swagger-ui",
-        "swaggered",
-        "hapi"
-    ],
-    "engines": {
-        "node": "0.10.x"
-    },
-    "dependencies": {
-        "handlebars": "^2.0.0-alpha.4",
-        "hoek": "^2.4.0"
-    },
-    "devDependencies": {
-        "grunt": "^0.4.5",
-        "grunt-contrib-jshint": "^0.10.0",
-        "grunt-contrib-watch": "^0.6.1",
-        "grunt-release": "^0.7.0"
-    },
-    "scripts": {},
-    "peerDependencies": {}
+  "name": "hapi-swaggered-ui",
+  "description": "Easy swagger-ui drop-in plugin for hapi to be used with hapi-swaggered.",
+  "version": "1.0.0",
+  "author": "Timo Behrmann",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/z0mt3c/hapi-swaggered-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/z0mt3c/hapi-swaggered-ui/issues"
+  },
+  "license": "MIT",
+  "main": "index",
+  "keywords": [
+    "docs",
+    "swagger",
+    "swagger-ui",
+    "swaggered",
+    "hapi"
+  ],
+  "engines": {
+    "node": "0.10.x"
+  },
+  "dependencies": {
+    "handlebars": "^2.0.0-alpha.4",
+    "hoek": "^2.4.0"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-release": "^0.7.0"
+  },
+  "scripts": {},
+  "peerDependencies": {}
 }
