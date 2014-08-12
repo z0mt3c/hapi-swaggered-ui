@@ -22,7 +22,14 @@ In case you want to use hapi-swaggered-ui without hapi-swaggered (or the auto-de
         },
         options: {
             title: 'Page Title',
-            swaggerEndpoint: 'http://localhost:123/swagger/api-docs'
+            // swaggerEndpoint is optional if hapi-swaggered-ui is used on the same server
+            swaggerEndpoint: 'http://localhost:123/swagger/api-docs',
+            // authorization is optional
+            authorization: {
+                field: 'Authorization',
+                scope: 'header',
+                valuePrefix: 'bearer '
+            }
         }
     }
 ]
