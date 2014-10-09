@@ -26,7 +26,7 @@
     "handlebars": "^2.0.0-alpha.4",
     "hoek": "^2.4.0",
     "lodash": "^2.4.1",
-    "swagger-ui": "^2.0.22"
+    "swagger-ui": "2.0.22"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
