@@ -13,6 +13,8 @@ Since [hapi-swaggered](https://github.com/z0mt3c/hapi-swaggered) exposes its plu
 
 In case you want to use hapi-swaggered-ui without hapi-swaggered (or the auto-detection doesn't work) you can manually set the swagger endpoint by the swaggerEndpoint option. In addition the page title can be changed through the option title.
 
+Through manifest:
+
 ```js
 'hapi-swaggered-ui': [
     {
@@ -23,7 +25,7 @@ In case you want to use hapi-swaggered-ui without hapi-swaggered (or the auto-de
         options: {
             title: 'Page Title',
             // swaggerEndpoint is optional if hapi-swaggered-ui is used on the same server
-            swaggerEndpoint: 'http://localhost:123/swagger/api-docs',
+            // swaggerEndpoint: 'http://localhost:123/swagger/api-docs',
             // authorization is optional
             authorization: {
                 field: 'Authorization',
@@ -33,4 +35,29 @@ In case you want to use hapi-swaggered-ui without hapi-swaggered (or the auto-de
         }
     }
 ]
-```
+````
+
+Or the manual way:
+
+```js
+server.pack.register({
+	plugin: require('hapi-swaggered-ui'),
+	options: {
+		title: 'Page Title',
+		// swaggerEndpoint is optional if hapi-swaggered-ui is used on the same server
+		// swaggerEndpoint: 'http://localhost:8000/swagger/api-docs',
+		// authorization is optional
+		authorization: {
+			field: 'Authorization',
+			scope: 'header',
+			valuePrefix: 'bearer '
+		}
+	}
+}, {
+	select: 'api',
+	route: {
+		prefix: '/docs'
+	}
+}, function (err) {
+});
+``
