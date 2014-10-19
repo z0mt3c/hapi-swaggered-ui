@@ -1,56 +1,32 @@
 # hapi-swaggered-ui
-Easy swagger-ui drop-in plugin for hapi to be used with [hapi-swaggered](https://github.com/z0mt3c/hapi-swaggered). 
+Easy swagger-ui drop-in plugin for hapi to be used with [hapi-swaggered](https://github.com/z0mt3c/hapi-swaggered).
 
 ## Install
-Through npm...
-
 ```bash
 npm install hapi-swaggered-ui
 ```
 
-## Example Configuration
-Since [hapi-swaggered](https://github.com/z0mt3c/hapi-swaggered) exposes its plugin configuration hapi-swaggered-ui should find it's swagger endpoint automatically. So basically no configuration is required.
+## Configuration
+* `title`: string, title of swagger ui
+* `authorization`: object
+  * `scope`: string, 'query' or 'header'
+  * `field`: string, name of the field
+  * `valuePrefix`: string, prefix fields value (e.g. with 'bearer ')
 
-In case you want to use hapi-swaggered-ui without hapi-swaggered (or the auto-detection doesn't work) you can manually set the swagger endpoint by the swaggerEndpoint option. In addition the page title can be changed through the option title.
-
-Through manifest:
-
-```js
-'hapi-swaggered-ui': [
-    {
-        select: 'api',
-        route: {
-            prefix: '/docs'
-        },
-        options: {
-            title: 'Page Title',
-            // swaggerEndpoint is optional if hapi-swaggered-ui is used on the same server
-            // swaggerEndpoint: 'http://localhost:123/swagger/api-docs',
-            // authorization is optional
-            authorization: {
-                field: 'Authorization',
-                scope: 'header',
-                valuePrefix: 'bearer '
-            }
-        }
-    }
-]
-````
-
-Or the manual way:
+## Example
+Since [hapi-swaggered](https://github.com/z0mt3c/hapi-swaggered) exposes its plugin configuration hapi-swaggered-ui should find it's swagger endpoint automatically. In case you want to use hapi-swaggered-ui without hapi-swaggered (or the auto-detection doesn't work) you can manually set the swagger endpoint by the swaggerEndpoint option. In addition the page title can be changed through the option title.
 
 ```js
+var hapiSwaggeredUi = require('hapi-swaggered-ui');
+
 server.pack.register({
-	plugin: require('hapi-swaggered-ui'),
+	plugin: hapiSwaggeredUi,
 	options: {
-		title: 'Page Title',
-		// swaggerEndpoint is optional if hapi-swaggered-ui is used on the same server
-		// swaggerEndpoint: 'http://localhost:8000/swagger/api-docs',
-		// authorization is optional
+		title: 'Example API',
 		authorization: {
-			field: 'Authorization',
-			scope: 'header',
-			valuePrefix: 'bearer '
+			field: 'apiKey',
+			scope: 'query' // header works as well
+			// valuePrefix: 'bearer '// prefix incase
 		}
 	}
 }, {
@@ -58,6 +34,11 @@ server.pack.register({
 	route: {
 		prefix: '/docs'
 	}
-}, function (err) {
+}, function(err) {
+	if (err) {
+		throw err;
+	}
 });
-``
+```
+
+May have a look at https://github.com/z0mt3c/hapi-swaggered-demo
