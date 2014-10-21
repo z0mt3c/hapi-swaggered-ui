@@ -7,7 +7,7 @@
     <link href='{{routePrefix}}/css/screen.css' media='screen' rel='stylesheet' type='text/css'/>
     <link href='{{routePrefix}}/css/reset.css' media='print' rel='stylesheet' type='text/css'/>
     <link href='{{routePrefix}}/css/screen.css' media='print' rel='stylesheet' type='text/css'/>
-    <script type="text/javascript" src="{{routePrefix}}/lib/shred.bundle.js"></script>
+    <script src="{{routePrefix}}/lib/shred.bundle.js" type="text/javascript" ></script>
     <script src='{{routePrefix}}/lib/jquery-1.8.0.min.js' type='text/javascript'></script>
     <script src='{{routePrefix}}/lib/jquery.slideto.min.js' type='text/javascript'></script>
     <script src='{{routePrefix}}/lib/jquery.wiggle.min.js' type='text/javascript'></script>
@@ -16,6 +16,7 @@
     <script src='{{routePrefix}}/lib/underscore-min.js' type='text/javascript'></script>
     <script src='{{routePrefix}}/lib/backbone-min.js' type='text/javascript'></script>
     <script src='{{routePrefix}}/lib/swagger.js' type='text/javascript'></script>
+    <script src='{{routePrefix}}/lib/swagger-client.js' type='text/javascript'></script>
     <script src='{{routePrefix}}/swagger-ui.js' type='text/javascript'></script>
     <script src='{{routePrefix}}/lib/highlight.7.3.pack.js' type='text/javascript'></script>
 
@@ -51,7 +52,7 @@
                 sorter: "alpha"
             });
 
-            {{#if authorization}}
+			{{#if authorization}}
                 $('#input_apiKey').change(function () {
                     var key = $('#input_apiKey')[0].value;
                     log("key: " + key);
@@ -59,7 +60,7 @@
                         window.authorizations.add("key", new ApiKeyAuthorization('{{authorization.field}}', {{#if authorization.valuePrefix}}'{{authorization.valuePrefix}}' + {{/if}} key, '{{authorization.scope}}'));
                     }
                 });
-            {{/if}}
+			{{/if}}
 
             window.swaggerUi.load();
         });
