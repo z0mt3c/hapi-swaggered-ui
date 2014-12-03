@@ -1,6 +1,8 @@
 # hapi-swaggered-ui
 Easy swagger-ui drop-in plugin for hapi to be used with [hapi-swaggered](https://github.com/z0mt3c/hapi-swaggered).
 
+Supports hapi 7.x and 8.x
+
 ## Install
 ```bash
 npm install hapi-swaggered-ui
@@ -41,4 +43,4 @@ server.pack.register({
 });
 ```
 
-May have a look at https://github.com/z0mt3c/hapi-swaggered-demo
+May have a look at the example listed at https://github.com/z0mt3c/hapi-swaggered
