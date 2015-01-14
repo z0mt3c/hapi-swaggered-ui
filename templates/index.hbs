@@ -23,14 +23,14 @@
     <script src='{{routePrefix}}/lib/swagger-oauth.js' type='text/javascript'></script>
 
     <script type="text/javascript">
-        $(function () {
+        $(function() {
             window.swaggerUi = new SwaggerUi({
                 url: "{{swaggerEndpoint}}",
                 dom_id: "swagger-ui-container",
                 supportedSubmitMethods: ['get', 'post', 'put', 'delete'],
-                onComplete: function (swaggerApi, swaggerUi) {
+                onComplete: function(swaggerApi, swaggerUi) {
                     log("Loaded SwaggerUI");
-
+                    $('#input_apiKey').trigger('change');
                     if (typeof initOAuth == "function") {
                         /*
                         initOAuth({
@@ -40,11 +40,11 @@
                         });
                         */
                     }
-                    $('pre code').each(function (i, e) {
+                    $('pre code').each(function(i, e) {
                         hljs.highlightBlock(e)
                     });
                 },
-                onFailure: function (data) {
+                onFailure: function(data) {
                     log("Unable to Load SwaggerUI");
                 },
                 docExpansion: "none",
@@ -52,13 +52,18 @@
             });
 
             {{#if authorization}}
-                $('#input_apiKey').change(function () {
-                    var key = $('#input_apiKey')[0].value;
-                    log("key: " + key);
+                var updateApiKey = function() {
+                    var key = $('#input_apiKey').get(0).value;
+
                     if (key && key.trim() != "") {
-                        window.authorizations.add("key", new ApiKeyAuthorization('{{authorization.field}}', {{#if authorization.valuePrefix}}'{{authorization.valuePrefix}}' + {{/if}} key, '{{authorization.scope}}'));
+                        var field = '{{authorization.field}}';
+                        var scope = '{{authorization.scope}}';
+                        key = {{#if authorization.valuePrefix}}'{{authorization.valuePrefix}}' + {{/if}} key;
+                        window.authorizations.add("key", new ApiKeyAuthorization(field, key, scope));
                     }
-                });
+                };
+
+                $('#input_apiKey').change(updateApiKey);
             {{/if}}
 
             window.swaggerUi.load();
@@ -72,9 +77,13 @@
         <a id="logo" href="#">{{title}}</a>
 
         <form id='api_selector' style="{{#if authorization}}{{else}}display: none;{{/if}}">
-            <div class='input' style="display:none;"><input placeholder="http://example.com/api" id="input_baseUrl"
-                                                            name="baseUrl" type="text"/></div>
-            <div class='input'><input placeholder="api_key" id="input_apiKey" name="apiKey" type="text"/></div>
+            <div class='input' style="display:none;">
+                <input placeholder="http://example.com/api" id="input_baseUrl" name="baseUrl" type="text"/></div>
+            <div class='input'>
+                <input {{#if authorization.defaultValue}}value="{{authorization.defaultValue}}"{{/if}}
+                       placeholder="{{#if authorization.placeholder}}{{authorization.placeholder}}{{else}}{{authorization.field}}{{/if}}"
+                       id="input_apiKey" name="apiKey" type="text"/>
+            </div>
             <div class='input'><a id="explore" href="#">Explore</a></div>
         </form>
     </div>
