@@ -25,14 +25,13 @@
   "dependencies": {
     "handlebars": "^2.0.0-alpha.4",
     "hoek": "^2.4.0",
-    "lodash": "^2.4.1",
-    "swagger-ui": "^2.1.0-alpha.7"
+    "lodash": "^3.1.0",
+    "swagger-ui": "^2.1.1-M1"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-contrib-jshint": "^0.10.0",
-    "grunt-contrib-watch": "^0.6.1",
-    "grunt-release": "^0.7.0"
+    "grunt-contrib-watch": "^0.6.1"
   },
   "scripts": {},
   "peerDependencies": {}
