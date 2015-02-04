@@ -10,10 +10,16 @@ npm install hapi-swaggered-ui
 
 ## Configuration
 * `title`: string, title of swagger ui
+* `swaggerOptions`: object
+  * `sorter`: Apply a sort to the API list. It can be 'alpha' (sort paths alphanumerically) or 'method' (sort operations by HTTP method). Default is the order returned by the server unchanged.
+  * `docExpansion`: Controls how the API listing is displayed. It can be set to 'none' (default), 'list' (shows operations for each resource), or 'full' (fully expanded: shows operations and their details).
 * `authorization`: object
   * `scope`: string, 'query' or 'header'
   * `field`: string, name of the field
   * `valuePrefix`: string, prefix fields value (e.g. with 'bearer ')
+  * `defaultValue`: string, default value of the api-key field
+  * `placeholder`: string, placeholder of the api-key field
+
 
 ## Example
 Since [hapi-swaggered](https://github.com/z0mt3c/hapi-swaggered) exposes its plugin configuration hapi-swaggered-ui should find it's swagger endpoint automatically. In case you want to use hapi-swaggered-ui without hapi-swaggered (or the auto-detection doesn't work) you can manually set the swagger endpoint by the swaggerEndpoint option. In addition the page title can be changed through the option title.
@@ -25,7 +31,8 @@ server.register({
 	register: hapiSwaggeredUi,
 	options: {
 		title: 'Example API',
-		authorization: {
+		swaggerOptions: {}, // see above
+		authorization: { // see above
 			field: 'apiKey',
 			scope: 'query' // header works as well
 			// valuePrefix: 'bearer '// prefix incase
