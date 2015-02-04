@@ -2,43 +2,36 @@
 <html>
 <head>
     <title>{{title}}</title>
-    <link href='//fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'/>
-    <link href='{{routePrefix}}/css/reset.css' media='screen' rel='stylesheet' type='text/css'/>
-    <link href='{{routePrefix}}/css/screen.css' media='screen' rel='stylesheet' type='text/css'/>
-    <link href='{{routePrefix}}/css/reset.css' media='print' rel='stylesheet' type='text/css'/>
-    <link href='{{routePrefix}}/css/screen.css' media='print' rel='stylesheet' type='text/css'/>
-    <script type="text/javascript" src="{{routePrefix}}/lib/shred.bundle.js"></script>
-    <script src='{{routePrefix}}/lib/jquery-1.8.0.min.js' type='text/javascript'></script>
-    <script src='{{routePrefix}}/lib/jquery.slideto.min.js' type='text/javascript'></script>
-    <script src='{{routePrefix}}/lib/jquery.wiggle.min.js' type='text/javascript'></script>
-    <script src='{{routePrefix}}/lib/jquery.ba-bbq.min.js' type='text/javascript'></script>
-    <script src='{{routePrefix}}/lib/handlebars-1.0.0.js' type='text/javascript'></script>
-    <script src='{{routePrefix}}/lib/underscore-min.js' type='text/javascript'></script>
-    <script src='{{routePrefix}}/lib/backbone-min.js' type='text/javascript'></script>
-    <script src='{{routePrefix}}/lib/swagger.js' type='text/javascript'></script>
-    <script src='{{routePrefix}}/swagger-ui.js' type='text/javascript'></script>
-    <script src='{{routePrefix}}/lib/highlight.7.3.pack.js' type='text/javascript'></script>
+    <link href="{{routePrefix}}/css/typography.css" media="screen" rel="stylesheet" type="text/css"/>
+    <link href="{{routePrefix}}/css/reset.css" media="screen" rel="stylesheet" type="text/css"/>
+    <link href="{{routePrefix}}/css/screen.css" media="screen" rel="stylesheet" type="text/css"/>
+    <link href="{{routePrefix}}/css/reset.css" media="print" rel="stylesheet" type="text/css"/>
+    <link href="{{routePrefix}}/css/screen.css" media="print" rel="stylesheet" type="text/css"/>
+    <script src="{{routePrefix}}/lib/shred.bundle.js" type="text/javascript"></script>
+    <script src="{{routePrefix}}/lib/jquery-1.8.0.min.js" type="text/javascript"></script>
+    <script src="{{routePrefix}}/lib/jquery.slideto.min.js" type="text/javascript"></script>
+    <script src="{{routePrefix}}/lib/jquery.wiggle.min.js" type="text/javascript"></script>
+    <script src="{{routePrefix}}/lib/jquery.ba-bbq.min.js" type="text/javascript"></script>
+    <script src="{{routePrefix}}/lib/handlebars-2.0.0.js" type="text/javascript"></script>
+    <script src="{{routePrefix}}/lib/underscore-min.js" type="text/javascript"></script>
+    <script src="{{routePrefix}}/lib/backbone-min.js" type="text/javascript"></script>
+    <script src="{{routePrefix}}/lib/swagger-client.js" type="text/javascript"></script>
+    <script src="{{routePrefix}}/swagger-ui.js" type="text/javascript"></script>
+    <script src="{{routePrefix}}/lib/highlight.7.3.pack.js" type="text/javascript"></script>
+    <script src="{{routePrefix}}/lib/marked.js" type="text/javascript"></script>
 
     <!-- enabling this will enable oauth2 implicit scope support -->
-    <script src='{{routePrefix}}/lib/swagger-oauth.js' type='text/javascript'></script>
+    <script src="{{routePrefix}}/lib/swagger-oauth.js" type="text/javascript"></script>
 
     <script type="text/javascript">
         $(function() {
-            window.swaggerUi = new SwaggerUi({
-                url: "{{swaggerEndpoint}}",
+            var oauthOptions = {{{oauthOptions}}};
+            var swaggerOptions = _.extend({
                 dom_id: "swagger-ui-container",
                 supportedSubmitMethods: ['get', 'post', 'put', 'delete'],
                 onComplete: function(swaggerApi, swaggerUi) {
-                    log("Loaded SwaggerUI");
-                    $('#input_apiKey').trigger('change');
-                    if (typeof initOAuth == "function") {
-                        /*
-                        initOAuth({
-                          clientId: "your-client-id",
-                          realm: "your-realms",
-                          appName: "your-app-name"
-                        });
-                        */
+                    if (typeof initOAuth == "function" && oauthOptions) {
+                        initOAuth(oauthOptions);
                     }
                     $('pre code').each(function(i, e) {
                         hljs.highlightBlock(e)
@@ -46,24 +39,31 @@
                 },
                 onFailure: function(data) {
                     log("Unable to Load SwaggerUI");
-                },
-                docExpansion: "none",
-                sorter: "alpha"
-            });
+                }
+            }, {{{swaggerOptions}}});
+
+            window.swaggerUi = new SwaggerUi(swaggerOptions);
 
             {{#if authorization}}
-                var updateApiKey = function() {
-                    var key = $('#input_apiKey').get(0).value;
+                var addApiKeyAuthorization = function() {
+                    var key = $('#input_apiKey:first').val();
 
                     if (key && key.trim() != "") {
                         var field = '{{authorization.field}}';
                         var scope = '{{authorization.scope}}';
                         key = {{#if authorization.valuePrefix}}'{{authorization.valuePrefix}}' + {{/if}} key;
-                        window.authorizations.add("key", new ApiKeyAuthorization(field, key, scope));
+                        window.authorizations.add("api_key", new ApiKeyAuthorization(field, key, scope));
+                    } else {
+                        window.authorizations.remove("api_key");
                     }
                 };
 
-                $('#input_apiKey').change(updateApiKey);
+                $('#input_apiKey').change(addApiKeyAuthorization);
+            {{/if}}
+
+            {{#if authorization.defaultValue}}
+                $('#input_apiKey').val("{{authorization.defaultValue}}");
+                addApiKeyAuthorization();
             {{/if}}
 
             window.swaggerUi.load();
@@ -71,20 +71,19 @@
     </script>
 </head>
 
+
 <body class="swagger-section">
-<div id='header'>
+<div id="header">
     <div class="swagger-ui-wrap">
         <a id="logo" href="#">{{title}}</a>
-
-        <form id='api_selector' style="{{#if authorization}}{{else}}display: none;{{/if}}">
-            <div class='input' style="display:none;">
-                <input placeholder="http://example.com/api" id="input_baseUrl" name="baseUrl" type="text"/></div>
-            <div class='input'>
-                <input {{#if authorization.defaultValue}}value="{{authorization.defaultValue}}"{{/if}}
-                       placeholder="{{#if authorization.placeholder}}{{authorization.placeholder}}{{else}}{{authorization.field}}{{/if}}"
+        <form id="api_selector" style="{{#if authorization}}{{else}}display: none;{{/if}}">
+            <div class="input" style="display:none;"><input placeholder="http://example.com/api" id="input_baseUrl"
+                                                            name="baseUrl" type="text"/></div>
+            <div class="input">
+                <input placeholder="{{#if authorization.placeholder}}{{authorization.placeholder}}{{else}}{{authorization.field}}{{/if}}"
                        id="input_apiKey" name="apiKey" type="text"/>
             </div>
-            <div class='input'><a id="explore" href="#">Explore</a></div>
+            <div class="input"><a id="explore" href="#">Explore</a></div>
         </form>
     </div>
 </div>

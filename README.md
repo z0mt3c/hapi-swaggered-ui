@@ -21,8 +21,8 @@ Since [hapi-swaggered](https://github.com/z0mt3c/hapi-swaggered) exposes its plu
 ```js
 var hapiSwaggeredUi = require('hapi-swaggered-ui');
 
-server.pack.register({
-	plugin: hapiSwaggeredUi,
+server.register({
+	register: hapiSwaggeredUi,
 	options: {
 		title: 'Example API',
 		authorization: {
@@ -33,7 +33,7 @@ server.pack.register({
 	}
 }, {
 	select: 'api',
-	route: {
+	routes: {
 		prefix: '/docs'
 	}
 }, function(err) {
