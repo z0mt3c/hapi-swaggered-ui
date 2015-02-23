@@ -27,7 +27,7 @@
     "hoek": "^2.4.0",
     "joi": "^5.1.0",
     "lodash": "^3.1.0",
-    "swagger-ui": "^2.1.6-M1"
+    "swagger-ui": "2.1.8-M1"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
