@@ -28,7 +28,6 @@
             var oauthOptions = {{{oauthOptions}}};
             var swaggerOptions = _.extend({
                 dom_id: "swagger-ui-container",
-                supportedSubmitMethods: ['get', 'post', 'put', 'delete'],
                 onComplete: function(swaggerApi, swaggerUi) {
                     if (typeof initOAuth == "function" && oauthOptions) {
                         initOAuth(oauthOptions);
