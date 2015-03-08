@@ -10,9 +10,11 @@ npm install hapi-swaggered-ui
 
 ## Configuration
 * `title`: string, title of swagger ui
+* `swaggerEndpoint`: Override the auto-detection of [hapi-swaggered](https://github.com/z0mt3c/hapi-swaggered) with a specific URL. (not recommended in use with hapi-swaggered; optional)
 * `swaggerOptions`: object
   * `sorter`: Apply a sort to the API list. It can be 'alpha' (sort paths alphanumerically) or 'method' (sort operations by HTTP method). Default is the order returned by the server unchanged.
   * `docExpansion`: Controls how the API listing is displayed. It can be set to 'none' (default), 'list' (shows operations for each resource), or 'full' (fully expanded: shows operations and their details).
+  * `supportedSubmitMethods`: Routes which differ will be listed as readonly - default: ['get', 'post', 'put', 'patch', 'delete']
 * `authorization`: object
   * `scope`: string, 'query' or 'header'
   * `field`: string, name of the field
