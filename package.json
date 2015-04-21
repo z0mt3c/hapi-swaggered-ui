@@ -30,10 +30,13 @@
     "swagger-ui": "2.1.1-M2"
   },
   "devDependencies": {
+    "code": "^1.4.0",
+    "hapi": "^8.4.0",
+    "lab": "^5.6.1",
     "standard": "^3.6.1"
   },
   "scripts": {
-    "test": "standard"
+    "test": "standard && lab"
   },
   "peerDependencies": {
     "hapi": ">= 7.x.x < 9.0.0"
