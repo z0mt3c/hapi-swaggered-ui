@@ -15,10 +15,13 @@ npm install hapi-swaggered-ui
 ## Configuration
 * `title`: string, title of swagger ui
 * `swaggerEndpoint`: Override the auto-detection of [hapi-swaggered](https://github.com/z0mt3c/hapi-swaggered) with a specific URL. (not recommended in use with hapi-swaggered; optional)
-* `swaggerOptions`: object
-  * `sorter`: Apply a sort to the API list. It can be 'alpha' (sort paths alphanumerically) or 'method' (sort operations by HTTP method). Default is the order returned by the server unchanged.
+* `swaggerOptions`: object (according to [swagger-ui](https://github.com/swagger-api/swagger-ui#parameters))
+  * `apisSorter`: Apply a sort to the API list. It can be 'alpha' (sort paths alphanumerically) or null (server side sorting).
+  * `operationsSorter`: Apply a sort to the operation list of each API. It can be 'alpha' (sort by paths alphanumerically), 'method' (sort by HTTP method) or null (server side sorting).
   * `docExpansion`: Controls how the API listing is displayed. It can be set to 'none' (default), 'list' (shows operations for each resource), or 'full' (fully expanded: shows operations and their details).
   * `supportedSubmitMethods`: Routes which differ will be listed as readonly - default: ['get', 'post', 'put', 'patch', 'delete']
+  * `highlightSizeThreshold`: Any size response below this threshold will be highlighted syntactically, attempting to highlight large responses can lead to browser hangs, not including a threshold will default to highlight all returned responses.
+  * `validatorUrl`: By default, Swagger-UI attempts to validate specs against swagger.io's online validator. You can use this parameter to set a different validator URL, for example for locally deployed validators (Validator Badge). Setting it to null will disable validation. This parameter is relevant for Swagger 2.0 specs only.
 * `authorization`: object
   * `scope`: string, 'query' or 'header'
   * `field`: string, name of the field
