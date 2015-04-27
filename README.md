@@ -5,6 +5,7 @@ Supports hapi 7.x and 8.x
 
 [![Build Status](https://img.shields.io/travis/z0mt3c/hapi-swaggered-ui/master.png)](https://travis-ci.org/z0mt3c/hapi-swaggered-ui)
 [![Dependency Status](https://img.shields.io/gemnasium/z0mt3c/hapi-swaggered-ui.svg)](https://gemnasium.com/z0mt3c/hapi-swaggered-ui)
+[![NPM downloads](https://img.shields.io/npm/dm/hapi-swaggered-ui.svg)](https://www.npmjs.com/package/hapi-swaggered-ui)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
 
 ## Install
