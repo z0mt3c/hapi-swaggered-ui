@@ -26,14 +26,14 @@
     "handlebars": "^3.0.3",
     "hoek": "^2.13.0",
     "joi": "^6.4.1",
-    "lodash": "^3.8.0",
-    "swagger-ui": "2.1.2-M2"
+    "lodash": "^3.9.1",
+    "swagger-ui": "2.1.5-M2"
   },
   "devDependencies": {
     "code": "^1.4.0",
     "hapi": "^8.4.0",
-    "lab": "^5.8.0",
-    "standard": "^3.7.3"
+    "lab": "^5.8.1",
+    "standard": "^3.11.0"
   },
   "scripts": {
     "test": "standard && lab"
