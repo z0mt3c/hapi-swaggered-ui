@@ -22,7 +22,7 @@ npm install hapi-swaggered-ui
   * `docExpansion`: Controls how the API listing is displayed. It can be set to 'none' (default), 'list' (shows operations for each resource), or 'full' (fully expanded: shows operations and their details).
   * `supportedSubmitMethods`: Routes which differ will be listed as readonly - default: ['get', 'post', 'put', 'patch', 'delete', 'head']
   * `highlightSizeThreshold`: Any size response below this threshold will be highlighted syntactically, attempting to highlight large responses can lead to browser hangs, not including a threshold will default to highlight all returned responses.
-  * `validatorUrl`: By default, Swagger-UI attempts to validate specs against swagger.io's online validator. You can use this parameter to set a different validator URL, for example for locally deployed validators (Validator Badge). Setting it to null will disable validation. This parameter is relevant for Swagger 2.0 specs only.
+  * `validatorUrl`: By default, Swagger-UI attempts to validate specs against swagger.io's online validator (disabled for localhost). You can use this parameter to set a different validator URL, for example for locally deployed validators (Validator Badge). Setting it to false will disable validation. This parameter is relevant for Swagger 2.0 specs only.
 * `authorization`: object
   * `scope`: string, 'query' or 'header'
   * `field`: string, name of the field
