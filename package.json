@@ -24,16 +24,16 @@
   },
   "dependencies": {
     "handlebars": "^3.0.3",
-    "hoek": "^2.13.0",
-    "joi": "^6.4.1",
-    "lodash": "^3.9.1",
+    "hoek": "^2.14.0",
+    "joi": "^6.4.3",
+    "lodash": "^3.9.3",
     "swagger-ui": "2.1.5-M2"
   },
   "devDependencies": {
     "code": "^1.4.0",
-    "hapi": "^8.4.0",
-    "lab": "^5.8.1",
-    "standard": "^3.11.0"
+    "hapi": "^8.6.0",
+    "lab": "^5.9.0",
+    "standard": "^4.0.1"
   },
   "scripts": {
     "test": "standard && lab"
