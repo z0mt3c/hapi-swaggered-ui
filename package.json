@@ -27,11 +27,11 @@
     "hoek": "^2.14.0",
     "joi": "^6.4.3",
     "lodash": "^3.9.3",
-    "swagger-ui": "2.1.5-M2"
+    "swagger-ui": "2.1.0"
   },
   "devDependencies": {
     "code": "^1.4.0",
-    "hapi": "^8.6.0",
+    "hapi": "^8.6.1",
     "lab": "^5.9.0",
     "standard": "^4.0.1"
   },
