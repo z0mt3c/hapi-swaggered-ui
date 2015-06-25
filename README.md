@@ -29,6 +29,7 @@ npm install hapi-swaggered-ui
   * `valuePrefix`: string, prefix fields value (e.g. with 'bearer ')
   * `defaultValue`: string, default value of the api-key field
   * `placeholder`: string, placeholder of the api-key field
+* `auth`: object, auth options as specified in [route options (hapi docs)](https://github.com/hapijs/hapi/blob/master/API.md#route-options), will be applied to all registered plugin routes
 
 
 ## Example
