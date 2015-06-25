@@ -1,0 +1,108 @@
+var Hapi = require('hapi')
+var Code = require('code')
+var Lab = require('lab')
+var lab = exports.lab = Lab.script()
+
+var describe = lab.describe
+var it = lab.it
+// var before = lab.before
+// var after = lab.after
+var expect = Code.expect
+
+describe('index', function () {
+  describe('without prefix', function () {
+    var server
+
+    lab.before(function (done) {
+      server = new Hapi.Server()
+      server.connection({port: 80})
+      server.register({
+        register: require('../'),
+        options: {
+          swaggerEndpoint: 'http://test.url.tld/swagger'
+        }
+      }, function (err) {
+        expect(err).to.not.exist()
+        done()
+      })
+    })
+
+    lab.after(function (done) {
+      server.stop({}, function () {
+        server = null
+        done()
+      })
+    })
+
+    it('Path /', function (done) {
+      server.inject('/', function (res) {
+        expect(res.statusCode).to.equal(200)
+        expect(res.result).to.contain('<meta http-equiv="refresh" content="0;url=./index.html">')
+        done()
+      })
+    })
+
+    it('/index.html', function (done) {
+      server.inject('/index.html', function (res) {
+        expect(res.statusCode).to.equal(200)
+        expect(res.result).to.contain('swagger-ui.js')
+        expect(res.result).to.contain('"url":"http://test.url.tld/swagger"')
+        done()
+      })
+    })
+  })
+
+  describe('with prefix', function () {
+    var server
+
+    lab.before(function (done) {
+      server = new Hapi.Server()
+      server.connection({port: 80})
+      server.register({
+        register: require('../'),
+        options: {
+          swaggerEndpoint: 'http://test.url.tld/swagger'
+        }
+      }, {
+        routes: {
+          prefix: '/docs'
+        }
+      }, function (err) {
+        expect(err).to.not.exist()
+        done()
+      })
+    })
+
+    lab.after(function (done) {
+      server.stop({}, function () {
+        server = null
+        done()
+      })
+    })
+
+    it('Path /docs', function (done) {
+      server.inject('/docs', function (res) {
+        expect(res.statusCode).to.equal(302)
+        expect(res.headers.location).to.equal('/docs/')
+        done()
+      })
+    })
+
+    it('Path /docs/', function (done) {
+      server.inject('/docs/', function (res) {
+        expect(res.statusCode).to.equal(200)
+        expect(res.result).to.contain('<meta http-equiv="refresh" content="0;url=./index.html">')
+        done()
+      })
+    })
+
+    it('/docs/index.html', function (done) {
+      server.inject('/docs/index.html', function (res) {
+        expect(res.statusCode).to.equal(200)
+        expect(res.result).to.contain('swagger-ui.js')
+        expect(res.result).to.contain('"url":"http://test.url.tld/swagger"')
+        done()
+      })
+    })
+  })
+})
