@@ -25,15 +25,15 @@
   "dependencies": {
     "handlebars": "^3.0.3",
     "hoek": "^2.14.0",
-    "joi": "^6.4.3",
-    "lodash": "^3.9.3",
+    "joi": "^6.5.0",
+    "lodash": "^3.10.0",
     "swagger-ui": "2.1.0"
   },
   "devDependencies": {
-    "code": "^1.4.0",
-    "hapi": "^8.6.1",
-    "lab": "^5.9.0",
-    "standard": "^4.0.1"
+    "code": "^1.4.1",
+    "hapi": "^8.8.0",
+    "lab": "^5.13.0",
+    "standard": "^4.5.2"
   },
   "scripts": {
     "test": "standard && lab"
