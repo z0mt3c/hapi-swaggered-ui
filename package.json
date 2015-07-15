@@ -33,7 +33,7 @@
     "code": "^1.4.1",
     "hapi": "^8.8.0",
     "lab": "^5.13.0",
-    "standard": "^4.5.2"
+    "standard": "^4.5.4"
   },
   "scripts": {
     "test": "standard && lab"
