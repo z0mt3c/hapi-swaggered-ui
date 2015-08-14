@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "code": "^1.4.1",
-    "hapi": "^8.8.0",
+    "hapi": "^9.0.1",
     "lab": "^5.14.0",
     "standard": "^5.1.0"
   },
@@ -39,6 +39,6 @@
     "test": "standard && lab"
   },
   "peerDependencies": {
-    "hapi": ">= 7.x.x < 9.0.0"
+    "hapi": ">= 7.x.x < 10.0.0"
   }
 }
