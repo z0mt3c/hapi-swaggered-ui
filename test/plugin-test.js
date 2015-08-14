@@ -14,9 +14,9 @@ describe('init', function () {
     var server = new Hapi.Server()
     server.connection({port: 80})
 
-    server.register({
+    server.register([require('vision'), require('inert'), {
       register: require('../')
-    }, function (err) {
+    }], function (err) {
       expect(err).to.not.exist()
       done()
     })

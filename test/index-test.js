@@ -2,6 +2,8 @@ var Hapi = require('hapi')
 var Code = require('code')
 var Lab = require('lab')
 var lab = exports.lab = Lab.script()
+var inert = require('inert')
+var vision = require('vision')
 
 var describe = lab.describe
 var it = lab.it
@@ -15,15 +17,17 @@ describe('index', function () {
 
     lab.before(function (done) {
       server = new Hapi.Server()
-      server.connection({port: 80})
-      server.register({
+      server.connection({port: 0})
+      server.register([vision, inert, {
         register: require('../'),
         options: {
           swaggerEndpoint: 'http://test.url.tld/swagger'
         }
-      }, function (err) {
+      }], function (err) {
         expect(err).to.not.exist()
-        done()
+        server.start(function() {
+          done()
+        })
       })
     })
 
@@ -58,19 +62,21 @@ describe('index', function () {
 
     lab.before(function (done) {
       server = new Hapi.Server()
-      server.connection({port: 80})
-      server.register({
+      server.connection({port: 0})
+      server.register([vision, inert, {
         register: require('../'),
         options: {
           swaggerEndpoint: 'http://test.url.tld/swagger'
         }
-      }, {
+      }], {
         routes: {
           prefix: '/docs'
         }
       }, function (err) {
         expect(err).to.not.exist()
-        done()
+        server.start(function() {
+          done()
+        })
       })
     })
 
@@ -112,19 +118,21 @@ describe('index', function () {
 
     lab.before(function (done) {
       server = new Hapi.Server()
-      server.connection({port: 80, router: { stripTrailingSlash: true }})
-      server.register({
+      server.connection({port: 0, router: { stripTrailingSlash: true }})
+      server.register([vision, inert, {
         register: require('../'),
         options: {
           swaggerEndpoint: 'http://test.url.tld/swagger'
         }
-      }, {
+      }], {
         routes: {
           prefix: '/docs'
         }
       }, function (err) {
         expect(err).to.not.exist()
-        done()
+        server.start(function() {
+          done()
+        })
       })
     })
 

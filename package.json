@@ -25,9 +25,11 @@
   "dependencies": {
     "handlebars": "^3.0.3",
     "hoek": "^2.14.0",
+    "inert": "^3.0.1",
     "joi": "^6.6.1",
     "lodash": "^3.10.0",
-    "swagger-ui": "2.1.1"
+    "swagger-ui": "2.1.1",
+    "vision": "^2.0.1"
   },
   "devDependencies": {
     "code": "^1.4.1",
