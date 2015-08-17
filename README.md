@@ -15,6 +15,8 @@ npm install hapi-swaggered-ui
 
 ## Configuration
 * `title`: string, title of swagger ui
+* `path`: string, optional path where the docs should be located at (e.g. '/docs', defaults to: null)
+* `basePath`: string, optional url base path (e.g. used to fix reverse proxy routes)
 * `swaggerEndpoint`: Override the auto-detection of [hapi-swaggered](https://github.com/z0mt3c/hapi-swaggered) with a specific URL. (not recommended in use with hapi-swaggered; optional)
 * `swaggerOptions`: object (according to [swagger-ui](https://github.com/swagger-api/swagger-ui#parameters))
   * `apisSorter`: Apply a sort to the API list. It can be 'alpha' (sort paths alphanumerically) or null (server side sorting).
@@ -23,7 +25,7 @@ npm install hapi-swaggered-ui
   * `supportedSubmitMethods`: Routes which differ will be listed as readonly - default: ['get', 'post', 'put', 'patch', 'delete', 'head']
   * `highlightSizeThreshold`: Any size response below this threshold will be highlighted syntactically, attempting to highlight large responses can lead to browser hangs, not including a threshold will default to highlight all returned responses.
   * `validatorUrl`: By default, Swagger-UI attempts to validate specs against swagger.io's online validator (disabled for localhost). You can use this parameter to set a different validator URL, for example for locally deployed validators (Validator Badge). Setting it to false will disable validation. This parameter is relevant for Swagger 2.0 specs only.
-* `authorization`: object
+* `authorization`: object - can be null or false to disable authorization through swagger-ui (e.g. in case of public apis without auth)
   * `scope`: string, 'query' or 'header'
   * `field`: string, name of the field
   * `valuePrefix`: string, prefix fields value (e.g. with 'bearer ')

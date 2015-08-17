@@ -25,7 +25,7 @@ describe('index', function () {
         }
       }], function (err) {
         expect(err).to.not.exist()
-        server.start(function() {
+        server.start(function () {
           done()
         })
       })
@@ -74,7 +74,7 @@ describe('index', function () {
         }
       }, function (err) {
         expect(err).to.not.exist()
-        server.start(function() {
+        server.start(function () {
           done()
         })
       })
@@ -130,7 +130,7 @@ describe('index', function () {
         }
       }, function (err) {
         expect(err).to.not.exist()
-        server.start(function() {
+        server.start(function () {
           done()
         })
       })
