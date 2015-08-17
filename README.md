@@ -32,7 +32,7 @@ npm install hapi-swaggered-ui
   * `defaultValue`: string, default value of the api-key field
   * `placeholder`: string, placeholder of the api-key field
 * `auth`: object, auth options as specified in [route options (hapi docs)](https://github.com/hapijs/hapi/blob/master/API.md#route-options), will be applied to all registered plugin routes
-
+* `defaultTags`:  array of strings, will be passed to the specs endpoint through the query param 'tags' ([hapi-swaggered feature: tag filtering](https://github.com/z0mt3c/hapi-swaggered#tag-filtering))
 
 ## Example
 Since [hapi-swaggered](https://github.com/z0mt3c/hapi-swaggered) exposes its plugin configuration hapi-swaggered-ui should find it's swagger endpoint automatically. In case you want to use hapi-swaggered-ui without hapi-swaggered (or the auto-detection doesn't work) you can manually set the swagger endpoint by the swaggerEndpoint option. In addition the page title can be changed through the option title.
