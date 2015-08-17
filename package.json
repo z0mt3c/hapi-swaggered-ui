@@ -29,7 +29,7 @@
     "joi": "^6.6.1",
     "lodash": "^3.10.0",
     "swagger-ui": "2.1.1",
-    "vision": "^2.0.1"
+    "vision": "^3.0.0"
   },
   "devDependencies": {
     "code": "^1.4.1",
