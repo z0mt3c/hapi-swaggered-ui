@@ -37,6 +37,8 @@ npm install hapi-swaggered-ui
 ## Example
 Since [hapi-swaggered](https://github.com/z0mt3c/hapi-swaggered) exposes its plugin configuration hapi-swaggered-ui should find it's swagger endpoint automatically. In case you want to use hapi-swaggered-ui without hapi-swaggered (or the auto-detection doesn't work) you can manually set the swagger endpoint by the swaggerEndpoint option. In addition the page title can be changed through the option title.
 
+  Note: Hapi v8.x.x shipped with the `vision` and `inert` plugins already registered with the `server`, but have been removed in Hapi v9.x.x so require manual plugin registration before `hapi-swaggered-ui` as shown below. 
+
 ```js
 server.register([
   require('inert'),
