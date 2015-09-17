@@ -38,7 +38,9 @@
     "standard": "^5.1.0"
   },
   "scripts": {
-    "test": "standard && lab"
+    "lint": "standard",
+    "test": "lab",
+    "posttest": "npm run lint"
   },
   "peerDependencies": {
     "hapi": ">= 7.x.x < 10.0.0"
