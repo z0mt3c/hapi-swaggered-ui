@@ -19,7 +19,9 @@
     <script src="{{routePrefix}}/lib/backbone-min.js" type="text/javascript"></script>
     <script src="{{routePrefix}}/swagger-ui.min.js" type="text/javascript"></script>
     <script src="{{routePrefix}}/lib/highlight.7.3.pack.js" type="text/javascript"></script>
+    <script src="{{routePrefix}}/lib/jsoneditor.min.js" type="text/javascript"></script>
     <script src="{{routePrefix}}/lib/marked.js" type="text/javascript"></script>
+    <script src="{{routePrefix}}/lib/swagger-oauth.js" type="text/javascript"></script>
 
     <script type="text/javascript">
         $(function() {
@@ -36,6 +38,10 @@
                         addApiKeyAuthorization();
                     {{/if}}
 
+                    if (window.SwaggerTranslator) {
+                      window.SwaggerTranslator.translate();
+                    }
+
                     $('pre code').each(function(i, e) {
                         hljs.highlightBlock(e)
                     });
@@ -44,6 +50,10 @@
                     log("Unable to Load SwaggerUI");
                 }
             }, {{{swaggerOptions}}});
+
+            if (window.SwaggerTranslator) {
+              window.SwaggerTranslator.translate();
+            }
 
             window.swaggerUi = new SwaggerUi(swaggerOptions);
 
