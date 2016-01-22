@@ -1,7 +1,7 @@
 # hapi-swaggered-ui
 Easy swagger-ui drop-in plugin for hapi to be used with [hapi-swaggered](https://github.com/z0mt3c/hapi-swaggered).
 
-Supports hapi 8.x, 9.x and 10.x
+Supports hapi 10.x and up
 
 [![Build Status](https://img.shields.io/travis/z0mt3c/hapi-swaggered-ui/master.svg)](https://travis-ci.org/z0mt3c/hapi-swaggered-ui)
 [![Dependency Status](https://img.shields.io/gemnasium/z0mt3c/hapi-swaggered-ui.svg)](https://gemnasium.com/z0mt3c/hapi-swaggered-ui)
