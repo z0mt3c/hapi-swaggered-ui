@@ -15,7 +15,7 @@ describe('index', () => {
   describe('without prefix', () => {
     let server
 
-    lab.before(done => {
+    lab.before((done) => {
       server = new Hapi.Server()
       server.connection({port: 0})
       server.register([vision, inert, {
@@ -23,7 +23,7 @@ describe('index', () => {
         options: {
           swaggerEndpoint: 'http://test.url.tld/swagger'
         }
-      }], err => {
+      }], (err) => {
         expect(err).to.not.exist()
         server.start(() => {
           done()
@@ -31,15 +31,15 @@ describe('index', () => {
       })
     })
 
-    lab.after(done => {
+    lab.after((done) => {
       server.stop({}, () => {
         server = null
         done()
       })
     })
 
-    it('Path /', done => {
-      server.inject('/', res => {
+    it('Path /', (done) => {
+      server.inject('/', (res) => {
         expect(res.statusCode).to.equal(200)
         expect(res.result).to.contain('swagger-ui.min.js')
         expect(res.result).to.contain('"url":"http://test.url.tld/swagger"')
@@ -47,8 +47,8 @@ describe('index', () => {
       })
     })
 
-    it('/index.html', done => {
-      server.inject('/index.html', res => {
+    it('/index.html', (done) => {
+      server.inject('/index.html', (res) => {
         expect(res.statusCode).to.equal(200)
         expect(res.result).to.contain('swagger-ui.min.js')
         expect(res.result).to.contain('"url":"http://test.url.tld/swagger"')
@@ -60,7 +60,7 @@ describe('index', () => {
   describe('with prefix', () => {
     let server
 
-    lab.before(done => {
+    lab.before((done) => {
       server = new Hapi.Server()
       server.connection({port: 0})
       server.register([vision, inert, {
@@ -72,7 +72,7 @@ describe('index', () => {
         routes: {
           prefix: '/docs'
         }
-      }, err => {
+      }, (err) => {
         expect(err).to.not.exist()
         server.start(() => {
           done()
@@ -80,15 +80,15 @@ describe('index', () => {
       })
     })
 
-    lab.after(done => {
+    lab.after((done) => {
       server.stop({}, () => {
         server = null
         done()
       })
     })
 
-    it('Path /docs', done => {
-      server.inject('/docs', res => {
+    it('Path /docs', (done) => {
+      server.inject('/docs', (res) => {
         expect(res.statusCode).to.equal(200)
         expect(res.result).to.contain('swagger-ui.min.js')
         expect(res.result).to.contain('"url":"http://test.url.tld/swagger"')
@@ -96,15 +96,15 @@ describe('index', () => {
       })
     })
 
-    it('Path /docs/', done => {
-      server.inject('/docs/', res => {
+    it('Path /docs/', (done) => {
+      server.inject('/docs/', (res) => {
         expect(res.statusCode).to.equal(404)
         done()
       })
     })
 
-    it('/docs/index.html', done => {
-      server.inject('/docs/index.html', res => {
+    it('/docs/index.html', (done) => {
+      server.inject('/docs/index.html', (res) => {
         expect(res.statusCode).to.equal(200)
         expect(res.result).to.contain('swagger-ui.min.js')
         expect(res.result).to.contain('"url":"http://test.url.tld/swagger"')
@@ -116,7 +116,7 @@ describe('index', () => {
   describe('with prefix and stripTrailingSlash', () => {
     let server
 
-    lab.before(done => {
+    lab.before((done) => {
       server = new Hapi.Server()
       server.connection({port: 0, router: { stripTrailingSlash: true }})
       server.register([vision, inert, {
@@ -128,7 +128,7 @@ describe('index', () => {
         routes: {
           prefix: '/docs'
         }
-      }, err => {
+      }, (err) => {
         expect(err).to.not.exist()
         server.start(() => {
           done()
@@ -136,15 +136,15 @@ describe('index', () => {
       })
     })
 
-    lab.after(done => {
+    lab.after((done) => {
       server.stop({}, () => {
         server = null
         done()
       })
     })
 
-    it('Path /docs', done => {
-      server.inject('/docs', res => {
+    it('Path /docs', (done) => {
+      server.inject('/docs', (res) => {
         expect(res.statusCode).to.equal(200)
         expect(res.result).to.contain('swagger-ui.min.js')
         expect(res.result).to.contain('"url":"http://test.url.tld/swagger"')
@@ -152,8 +152,8 @@ describe('index', () => {
       })
     })
 
-    it('Path /docs/', done => {
-      server.inject('/docs/', res => {
+    it('Path /docs/', (done) => {
+      server.inject('/docs/', (res) => {
         expect(res.statusCode).to.equal(200)
         expect(res.result).to.contain('swagger-ui.min.js')
         expect(res.result).to.contain('"url":"http://test.url.tld/swagger"')
@@ -161,8 +161,8 @@ describe('index', () => {
       })
     })
 
-    it('/docs/index.html', done => {
-      server.inject('/docs/index.html', res => {
+    it('/docs/index.html', (done) => {
+      server.inject('/docs/index.html', (res) => {
         expect(res.statusCode).to.equal(200)
         expect(res.result).to.contain('swagger-ui.min.js')
         expect(res.result).to.contain('"url":"http://test.url.tld/swagger"')
