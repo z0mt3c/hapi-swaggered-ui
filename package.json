@@ -1,14 +1,14 @@
 {
-  "name": "hapi-swaggered-ui",
+  "name": "@leisurelink/hapi-swaggered-ui",
   "description": "Easy swagger-ui drop-in plugin for hapi to be used with hapi-swaggered.",
-  "version": "2.3.1",
+  "version": "1.0.0+2.3.1",
   "author": "Timo Behrmann",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/z0mt3c/hapi-swaggered-ui.git"
+    "url": "git+ssh://git@github.com/leisurelink/hapi-swaggered-ui.git"
   },
   "bugs": {
-    "url": "https://github.com/z0mt3c/hapi-swaggered-ui/issues"
+    "url": "https://github.com/leisurelink/hapi-swaggered-ui/issues"
   },
   "license": "MIT",
   "main": "index",
@@ -45,7 +45,7 @@
   "peerDependencies": {
     "hapi": ">= 10.x.x"
   },
-  "homepage": "https://github.com/z0mt3c/hapi-swaggered-ui#readme",
+  "homepage": "https://github.com/leisurelink/hapi-swaggered-ui#readme",
   "directories": {
     "test": "test"
   }
