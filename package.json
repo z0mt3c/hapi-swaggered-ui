@@ -39,7 +39,8 @@
   "scripts": {
     "lint": "standard",
     "test": "lab",
-    "posttest": "npm run lint"
+    "posttest": "npm run lint",
+    "preversion": "\n#############\nnpm version does not support semver build-meta, you must version manually\n#############\n"
   },
   "peerDependencies": {
     "hapi": ">= 10.x.x"
