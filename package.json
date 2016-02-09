@@ -27,7 +27,7 @@
     "hoek": "^3.0.4",
     "inert": "^3.2.0",
     "joi": "^7.0.0",
-    "swagger-ui": "2.1.4",
+    "@leisurelink/swagger-ui": "^1.0.0",
     "vision": "^4.0.1"
   },
   "devDependencies": {
