@@ -1,14 +1,14 @@
 {
-  "name": "hapi-swaggered-ui",
+  "name": "@leisurelink/hapi-swaggered-ui",
   "description": "Easy swagger-ui drop-in plugin for hapi to be used with hapi-swaggered.",
-  "version": "2.3.1",
+  "version": "1.0.1+2.3.1",
   "author": "Timo Behrmann",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/z0mt3c/hapi-swaggered-ui.git"
+    "url": "git+ssh://git@github.com/leisurelink/hapi-swaggered-ui.git"
   },
   "bugs": {
-    "url": "https://github.com/z0mt3c/hapi-swaggered-ui/issues"
+    "url": "https://github.com/leisurelink/hapi-swaggered-ui/issues"
   },
   "license": "MIT",
   "main": "index",
@@ -27,7 +27,7 @@
     "hoek": "^3.0.4",
     "inert": "^3.2.0",
     "joi": "^7.0.0",
-    "swagger-ui": "2.1.4",
+    "@leisurelink/swagger-ui": "^1.0.0",
     "vision": "^4.0.1"
   },
   "devDependencies": {
@@ -39,12 +39,13 @@
   "scripts": {
     "lint": "standard",
     "test": "lab",
-    "posttest": "npm run lint"
+    "posttest": "npm run lint",
+    "preversion": "\n#############\nnpm version does not support semver build-meta, you must version manually\n#############\n"
   },
   "peerDependencies": {
     "hapi": ">= 10.x.x"
   },
-  "homepage": "https://github.com/z0mt3c/hapi-swaggered-ui#readme",
+  "homepage": "https://github.com/leisurelink/hapi-swaggered-ui#readme",
   "directories": {
     "test": "test"
   }
