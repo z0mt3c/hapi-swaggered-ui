@@ -25,6 +25,8 @@
 
     <script type="text/javascript">
         $(function() {
+            $('#header').css('display', /embed=true/.test(window.location.search) ? 'none' : 'block');
+
             var oauthOptions = {{{oauthOptions}}};
             var swaggerOptions = _.extend({
                 dom_id: "swagger-ui-container",
