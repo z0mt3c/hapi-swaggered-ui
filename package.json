@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "handlebars": "^4.0.4",
-    "hoek": "^3.0.4",
+    "hoek": "^4.0.0",
     "inert": "^3.2.0",
     "joi": "^8.0.0",
     "swagger-ui": "2.1.4",
