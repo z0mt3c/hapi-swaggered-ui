@@ -27,7 +27,7 @@
     "hoek": "^3.0.4",
     "inert": "^3.2.0",
     "joi": "^8.0.0",
-    "swagger-ui": "2.1.4",
+    "swagger-ui": "2.1.5",
     "vision": "^4.0.1"
   },
   "devDependencies": {
