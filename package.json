@@ -24,17 +24,17 @@
   },
   "dependencies": {
     "handlebars": "^4.0.4",
-    "hoek": "^3.0.4",
-    "inert": "^3.2.0",
-    "joi": "^7.0.0",
-    "swagger-ui": "2.1.4",
+    "hoek": "^4.0.1",
+    "inert": "^4.0.1",
+    "joi": "^9.0.1",
+    "swagger-ui": "2.1.5",
     "vision": "^4.0.1"
   },
   "devDependencies": {
-    "code": "^2.0.1",
+    "code": "^3.0.1",
     "hapi": "^13.0.0",
-    "lab": "^8.1.0",
-    "standard": "^6.0.3"
+    "lab": "^10.9.0",
+    "standard": "^7.1.2"
   },
   "scripts": {
     "lint": "standard",
