@@ -1,7 +1,7 @@
 {
   "name": "hapi-swaggered-ui",
   "description": "Easy swagger-ui drop-in plugin for hapi to be used with hapi-swaggered.",
-  "version": "2.3.1",
+  "version": "2.4.0",
   "author": "Timo Behrmann",
   "repository": {
     "type": "git",
