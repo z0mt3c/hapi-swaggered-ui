@@ -34,7 +34,7 @@
     "code": "^3.0.1",
     "hapi": "^13.0.0",
     "lab": "^10.9.0",
-    "standard": "^7.1.2"
+    "standard": "^8.2.0"
   },
   "scripts": {
     "lint": "standard",
