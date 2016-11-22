@@ -31,7 +31,7 @@
     "vision": "^4.0.1"
   },
   "devDependencies": {
-    "code": "^3.0.1",
+    "code": "^4.0.0",
     "hapi": "^13.0.0",
     "lab": "^10.9.0",
     "standard": "^7.1.2"
