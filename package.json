@@ -33,7 +33,7 @@
   "devDependencies": {
     "code": "^4.0.0",
     "hapi": "^16.1.0",
-    "lab": "^12.1.0",
+    "lab": "^13.0.4",
     "standard": "^9.0.0"
   },
   "scripts": {
