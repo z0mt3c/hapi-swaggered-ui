@@ -39,7 +39,7 @@
   },
   "scripts": {
     "lint": "standard",
-    "test": "lab",
+    "test": "lab -l",
     "posttest": "npm run lint"
   },
   "peerDependencies": {
