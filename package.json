@@ -23,18 +23,19 @@
     "node": ">=4.0.0"
   },
   "dependencies": {
-    "handlebars": "^4.0.6",
-    "hoek": "^4.1.0",
-    "inert": "^4.1.0",
-    "joi": "^10.2.2",
-    "swagger-ui": "^2.2.10",
+    "handlebars": "^4.0.10",
+    "hoek": "^4.2.0",
+    "inert": "^4.2.1",
+    "joi": "^10.6.0",
+    "lodash": "^4.17.4",
+    "swagger-ui-dist": "^3.0.21",
     "vision": "^4.1.1"
   },
   "devDependencies": {
-    "code": "^4.0.0",
-    "hapi": "^16.1.0",
-    "lab": "^12.1.0",
-    "standard": "^9.0.0"
+    "code": "^4.1.0",
+    "hapi": "^16.5.0",
+    "lab": "^14.1.1",
+    "standard": "^10.0.2"
   },
   "scripts": {
     "lint": "standard",

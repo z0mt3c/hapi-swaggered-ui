@@ -41,7 +41,7 @@ describe('index', () => {
     it('Path /', (done) => {
       server.inject('/', (res) => {
         expect(res.statusCode).to.equal(200)
-        expect(res.result).to.contain('swagger-ui.min.js')
+        expect(res.result).to.contain('/swagger-ui-bundle.js')
         expect(res.result).to.contain('"url":"http://test.url.tld/swagger"')
         done()
       })
@@ -50,7 +50,7 @@ describe('index', () => {
     it('/index.html', (done) => {
       server.inject('/index.html', (res) => {
         expect(res.statusCode).to.equal(200)
-        expect(res.result).to.contain('swagger-ui.min.js')
+        expect(res.result).to.contain('/swagger-ui-bundle.js')
         expect(res.result).to.contain('"url":"http://test.url.tld/swagger"')
         done()
       })
@@ -90,7 +90,7 @@ describe('index', () => {
     it('Path /docs', (done) => {
       server.inject('/docs', (res) => {
         expect(res.statusCode).to.equal(200)
-        expect(res.result).to.contain('swagger-ui.min.js')
+        expect(res.result).to.contain('/swagger-ui-bundle.js')
         expect(res.result).to.contain('"url":"http://test.url.tld/swagger"')
         done()
       })
@@ -106,7 +106,7 @@ describe('index', () => {
     it('/docs/index.html', (done) => {
       server.inject('/docs/index.html', (res) => {
         expect(res.statusCode).to.equal(200)
-        expect(res.result).to.contain('swagger-ui.min.js')
+        expect(res.result).to.contain('/swagger-ui-bundle.js')
         expect(res.result).to.contain('"url":"http://test.url.tld/swagger"')
         done()
       })
@@ -146,7 +146,7 @@ describe('index', () => {
     it('Path /docs', (done) => {
       server.inject('/docs', (res) => {
         expect(res.statusCode).to.equal(200)
-        expect(res.result).to.contain('swagger-ui.min.js')
+        expect(res.result).to.contain('/swagger-ui-bundle.js')
         expect(res.result).to.contain('"url":"http://test.url.tld/swagger"')
         done()
       })
@@ -155,7 +155,7 @@ describe('index', () => {
     it('Path /docs/', (done) => {
       server.inject('/docs/', (res) => {
         expect(res.statusCode).to.equal(200)
-        expect(res.result).to.contain('swagger-ui.min.js')
+        expect(res.result).to.contain('/swagger-ui-bundle.js')
         expect(res.result).to.contain('"url":"http://test.url.tld/swagger"')
         done()
       })
@@ -164,7 +164,7 @@ describe('index', () => {
     it('/docs/index.html', (done) => {
       server.inject('/docs/index.html', (res) => {
         expect(res.statusCode).to.equal(200)
-        expect(res.result).to.contain('swagger-ui.min.js')
+        expect(res.result).to.contain('/swagger-ui-bundle.js')
         expect(res.result).to.contain('"url":"http://test.url.tld/swagger"')
         done()
       })

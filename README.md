@@ -1,5 +1,5 @@
 # hapi-swaggered-ui
-Easy swagger-ui drop-in plugin for hapi to be used with [hapi-swaggered](https://github.com/z0mt3c/hapi-swaggered).
+Easy swagger-ui (v3) drop-in plugin for hapi to be used with [hapi-swaggered](https://github.com/z0mt3c/hapi-swaggered).
 
 Supports hapi 10.x and up
 
@@ -19,12 +19,10 @@ npm install hapi-swaggered-ui
 * `basePath`: string, optional url base path (e.g. used to fix reverse proxy routes)
 * `swaggerEndpoint`: Override the auto-detection of [hapi-swaggered](https://github.com/z0mt3c/hapi-swaggered) with a specific URL. (not recommended in use with hapi-swaggered; optional)
 * `swaggerOptions`: object (according to [swagger-ui](https://github.com/swagger-api/swagger-ui#parameters))
-  * `apisSorter`: Apply a sort to the API list. It can be 'alpha' (sort paths alphanumerically) or null (server side sorting).
-  * `operationsSorter`: Apply a sort to the operation list of each API. It can be 'alpha' (sort by paths alphanumerically), 'method' (sort by HTTP method) or null (server side sorting).
+  * `operationsSorter`: Apply a sort to the operation list of each API. It can be 'alpha' (sort by paths alphanumerically), 'method' (sort by HTTP method), null (server side sorting) or a custom function (see link above).
   * `docExpansion`: Controls how the API listing is displayed. It can be set to 'none' (default), 'list' (shows operations for each resource), or 'full' (fully expanded: shows operations and their details).
-  * `supportedSubmitMethods`: Routes which differ will be listed as readonly - default: ['get', 'post', 'put', 'patch', 'delete', 'head']
-  * `highlightSizeThreshold`: Any size response below this threshold will be highlighted syntactically, attempting to highlight large responses can lead to browser hangs, not including a threshold will default to highlight all returned responses.
   * `validatorUrl`: By default, Swagger-UI attempts to validate specs against swagger.io's online validator (disabled for localhost). You can use this parameter to set a different validator URL, for example for locally deployed validators (Validator Badge). Setting it to false will disable validation. This parameter is relevant for Swagger 2.0 specs only.
+  * In addition the following options are supported: `oauth2RedirectUrl`, `configUrl`, `displayOperationId`, `displayRequestDuration`, `filter`, `deepLinking`, `maxDisplayedTags`, `tagsSorter`, `parameterMacro`, `modelPropertyMacro` - have a look at [swagger-ui](https://github.com/swagger-api/swagger-ui#parameters)
 * `authorization`: object - can be null or false to disable authorization through swagger-ui (e.g. in case of public apis without auth)
   * `scope`: string, 'query' or 'header'
   * `field`: string, name of the field
