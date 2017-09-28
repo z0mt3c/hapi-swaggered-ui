@@ -4,5 +4,4 @@ script:
   - "npm test"
 matrix:
   include:
-    - node_js: '6'
     - node_js: 'node'
