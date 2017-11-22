@@ -1,7 +1,7 @@
 {
   "name": "hapi-swaggered-ui",
   "description": "Easy swagger-ui drop-in plugin for hapi to be used with hapi-swaggered.",
-  "version": "3.0.0-beta.1",
+  "version": "3.0.0-beta.2",
   "author": "Timo Behrmann",
   "repository": {
     "type": "git",
@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "code": "^4.1.0",
-    "hapi": "^16.6.2",
+    "hapi": "^17.0.2",
     "lab": "^14.3.1",
     "standard": "^10.0.3"
   },
@@ -43,7 +43,7 @@
     "posttest": "npm run lint"
   },
   "peerDependencies": {
-    "hapi": ">= 10.x.x"
+    "hapi": ">= 17.x.x"
   },
   "homepage": "https://github.com/z0mt3c/hapi-swaggered-ui#readme",
   "directories": {
