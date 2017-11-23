@@ -20,21 +20,21 @@
     "hapi"
   ],
   "engines": {
-    "node": ">=4.0.0"
+    "node": ">=8.0.0"
   },
   "dependencies": {
-    "handlebars": "^4.0.10",
-    "hoek": "^4.2.0",
-    "inert": "^4.2.1",
-    "joi": "^10.6.0",
+    "handlebars": "^4.0.11",
+    "hoek": "^5.0.2",
+    "inert": "^5.0.1",
+    "joi": "^13.0.2",
     "lodash": "^4.17.4",
-    "swagger-ui-dist": "^3.2.2",
-    "vision": "^4.1.1"
+    "swagger-ui-dist": "^3.4.5",
+    "vision": "^5.2.0"
   },
   "devDependencies": {
-    "code": "^4.1.0",
-    "hapi": "^16.6.2",
-    "lab": "^14.3.1",
+    "code": "^5.1.2",
+    "hapi": "^17.1.0",
+    "lab": "^15.1.2",
     "standard": "^10.0.3"
   },
   "scripts": {
@@ -43,7 +43,7 @@
     "posttest": "npm run lint"
   },
   "peerDependencies": {
-    "hapi": ">= 10.x.x"
+    "hapi": ">= 17.x.x"
   },
   "homepage": "https://github.com/z0mt3c/hapi-swaggered-ui#readme",
   "directories": {
