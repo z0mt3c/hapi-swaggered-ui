@@ -10,15 +10,10 @@ const it = lab.it
 const expect = Code.expect
 
 describe('init', () => {
-  it('register', (done) => {
-    const server = new Hapi.Server()
-    server.connection({port: 80})
+  it('register', async () => {
+    const server = Hapi.Server({ port: 80 })
+    const plugins = [require('vision'), require('inert'), require('../')]
 
-    server.register([require('vision'), require('inert'), {
-      register: require('../')
-    }], (err) => {
-      expect(err).to.not.exist()
-      done()
-    })
+    await expect(server.register(plugins)).not.to.reject()
   })
 })
