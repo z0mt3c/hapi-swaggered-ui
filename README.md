@@ -2,6 +2,7 @@
 Easy swagger-ui (v3) drop-in plugin for hapi to be used with [hapi-swaggered](https://github.com/z0mt3c/hapi-swaggered).
 
 Supports hapi 17.x and up
+For earlier versions check [hapi-swaggered-ui 2.x](https://github.com/z0mt3c/hapi-swaggered-ui/blob/2.x/README.md) (current default/latest `npm install hapi-swaggered --save`)
 
 [![Build Status](https://img.shields.io/travis/z0mt3c/hapi-swaggered-ui/master.svg)](https://travis-ci.org/z0mt3c/hapi-swaggered-ui)
 [![Dependency Status](https://img.shields.io/gemnasium/z0mt3c/hapi-swaggered-ui.svg)](https://gemnasium.com/z0mt3c/hapi-swaggered-ui)
@@ -10,7 +11,7 @@ Supports hapi 17.x and up
 
 ## Install
 ```bash
-npm install hapi-swaggered-ui
+npm install hapi-swaggered-ui@next
 ```
 
 ## Configuration
