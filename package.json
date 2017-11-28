@@ -28,12 +28,12 @@
     "inert": "^5.0.1",
     "joi": "^13.0.2",
     "lodash": "^4.17.4",
-    "swagger-ui-dist": "^3.4.5",
+    "swagger-ui-dist": "^3.5.0",
     "vision": "^5.2.0"
   },
   "devDependencies": {
     "code": "^5.1.2",
-    "hapi": "^17.1.0",
+    "hapi": "^17.1.1",
     "lab": "^15.1.2",
     "standard": "^10.0.3"
   },
