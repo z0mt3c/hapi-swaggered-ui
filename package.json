@@ -24,18 +24,18 @@
   },
   "dependencies": {
     "handlebars": "^4.0.11",
-    "hoek": "^5.0.2",
-    "inert": "^5.0.1",
-    "joi": "^13.0.2",
-    "lodash": "^4.17.4",
-    "swagger-ui-dist": "^3.5.0",
-    "vision": "^5.2.0"
+    "hoek": "^5.0.3",
+    "inert": "^5.1.0",
+    "joi": "^13.1.2",
+    "lodash": "^4.17.5",
+    "swagger-ui-dist": "^3.12.0",
+    "vision": "^5.3.1"
   },
   "devDependencies": {
-    "code": "^5.1.2",
-    "hapi": "^17.1.1",
-    "lab": "^15.1.2",
-    "standard": "^10.0.3"
+    "code": "^5.2.0",
+    "hapi": "^17.2.2",
+    "lab": "^15.3.1",
+    "standard": "^11.0.0"
   },
   "scripts": {
     "lint": "standard",
