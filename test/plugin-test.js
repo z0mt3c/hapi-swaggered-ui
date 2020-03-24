@@ -3,7 +3,7 @@
 const Hapi = require('hapi')
 const Code = require('code')
 const Lab = require('lab')
-let lab = exports.lab = Lab.script()
+const lab = exports.lab = Lab.script()
 
 const describe = lab.describe
 const it = lab.it

@@ -3,7 +3,7 @@
 const Hapi = require('hapi')
 const Code = require('code')
 const Lab = require('lab')
-let lab = exports.lab = Lab.script()
+const lab = exports.lab = Lab.script()
 const inert = require('inert')
 const vision = require('vision')
 const plugin = require('../')
