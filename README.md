@@ -22,7 +22,7 @@ npm install hapi-swaggered-ui@next
   * `operationsSorter`: Apply a sort to the operation list of each API. It can be 'alpha' (sort by paths alphanumerically), 'method' (sort by HTTP method), null (server side sorting) or a custom function (see link above).
   * `docExpansion`: Controls how the API listing is displayed. It can be set to 'none' (default), 'list' (shows operations for each resource), or 'full' (fully expanded: shows operations and their details).
   * `validatorUrl`: By default, Swagger-UI attempts to validate specs against swagger.io's online validator (disabled for localhost). You can use this parameter to set a different validator URL, for example for locally deployed validators (Validator Badge). Setting it to false will disable validation. This parameter is relevant for Swagger 2.0 specs only.
-  * In addition the following options are supported: `oauth2RedirectUrl`, `configUrl`, `displayOperationId`, `displayRequestDuration`, `filter`, `deepLinking`, `maxDisplayedTags`, `tagsSorter`, `parameterMacro`, `modelPropertyMacro` - have a look at [swagger-ui](https://github.com/swagger-api/swagger-ui#parameters)
+  * In addition the following options are supported: `oauth2RedirectUrl`, `configUrl`, `displayOperationId`,, `defaultModelRendering`, `displayRequestDuration`, `filter`, `deepLinking`, `maxDisplayedTags`, `tagsSorter`, `parameterMacro`, `modelPropertyMacro` - have a look at [swagger-ui](https://github.com/swagger-api/swagger-ui#parameters)
 * `authorization`: object - can be null or false to disable authorization through swagger-ui (e.g. in case of public apis without auth)
   * `scope`: string, 'query' or 'header'
   * `field`: string, name of the field
