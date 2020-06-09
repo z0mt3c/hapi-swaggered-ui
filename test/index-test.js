@@ -1,11 +1,11 @@
 'use strict'
 
-const Hapi = require('hapi')
+const Hapi = require('@hapi/hapi')
 const Code = require('code')
-const Lab = require('lab')
-const lab = exports.lab = Lab.script()
-const inert = require('inert')
-const vision = require('vision')
+const Lab = require('@hapi/lab')
+const lab = (exports.lab = Lab.script())
+const inert = require('@hapi/inert')
+const vision = require('@hapi/vision')
 const plugin = require('../')
 
 const describe = lab.describe
@@ -19,12 +19,18 @@ describe('index', () => {
     lab.before(async () => {
       server = Hapi.Server({ port: 0 })
 
-      await expect(server.register([vision, inert, {
-        plugin,
-        options: {
-          swaggerEndpoint: 'http://test.url.tld/swagger'
-        }
-      }])).not.to.reject()
+      await expect(
+        server.register([
+          vision,
+          inert,
+          {
+            plugin,
+            options: {
+              swaggerEndpoint: 'http://test.url.tld/swagger'
+            }
+          }
+        ])
+      ).not.to.reject()
     })
 
     lab.after(async () => {
@@ -55,16 +61,23 @@ describe('index', () => {
     lab.before(async () => {
       server = Hapi.Server({ port: 0 })
 
-      await server.register([vision, inert, {
-        plugin,
-        options: {
-          swaggerEndpoint: 'http://test.url.tld/swagger'
+      await server.register(
+        [
+          vision,
+          inert,
+          {
+            plugin,
+            options: {
+              swaggerEndpoint: 'http://test.url.tld/swagger'
+            }
+          }
+        ],
+        {
+          routes: {
+            prefix: '/docs'
+          }
         }
-      }], {
-        routes: {
-          prefix: '/docs'
-        }
-      })
+      )
 
       await server.start()
     })
@@ -103,16 +116,23 @@ describe('index', () => {
     lab.before(async () => {
       server = Hapi.Server({ port: 0, router: { stripTrailingSlash: true } })
 
-      await server.register([vision, inert, {
-        plugin,
-        options: {
-          swaggerEndpoint: 'http://test.url.tld/swagger'
+      await server.register(
+        [
+          vision,
+          inert,
+          {
+            plugin,
+            options: {
+              swaggerEndpoint: 'http://test.url.tld/swagger'
+            }
+          }
+        ],
+        {
+          routes: {
+            prefix: '/docs'
+          }
         }
-      }], {
-        routes: {
-          prefix: '/docs'
-        }
-      })
+      )
 
       await server.start()
     })
